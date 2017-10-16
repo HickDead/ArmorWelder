@@ -23,14 +23,17 @@ private final function ReplaceWelder(Pawn P)
     if (KFIM != none)
     {
         KFIM.GetWeaponFromClass(OldWelder, 'KFWeap_Welder');
-        
-        if (OldWelder != none)
-            KFIM.ServerRemoveFromInventory(OldWelder);
-        
+
         if (NewWelder != none)
         {
             KFIM.CreateInventory(NewWelder /*, false*/);
-            `log( "=== ArmorWelder === Replaced welder");
+            `log( "=== ArmorWelder === Added armor-welder");
+	}
+
+        if (OldWelder != none)
+        {
+            KFIM.ServerRemoveFromInventory(OldWelder);
+            `log( "=== ArmorWelder === Removed regular welder");
 	}
 
     }
